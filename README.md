@@ -21,3 +21,4 @@ npm run lint
 ## Procedimiento
 
 1. Plantilla oficial creada con `npm create vite@latest cine-lab09 -- --template react --no-interactive`, dependencias instaladas y servidor iniciado.
+2. Andamiaje eliminado: HTML en español y componentes de entrada mínimos.
