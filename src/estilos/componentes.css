@@ -1,0 +1,11 @@
+.etiqueta { color: var(--vino); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.17em; text-transform: uppercase; }
+.nota { color: var(--gris); font-size: 0.8rem; }
+.pelicula img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 3px; }
+.pelicula-meta { display: flex; justify-content: space-between; align-items: center; margin-block: 16px 10px; font-size: 0.75rem; }
+.clasificacion { padding: 4px 7px; border: 1px solid var(--borde); border-radius: 3px; }
+.valoracion { color: var(--vino); font-weight: 700; }
+.pelicula h3 { font-size: 1.5rem; margin-bottom: 9px; }
+.sinopsis { color: var(--gris); font-size: 0.85rem; }
+.horarios { display: flex; gap: 7px; flex-wrap: wrap; list-style: none; padding: 0; margin: 12px 0 0; }
+.horarios li { padding: 6px 10px; background: #eee8dd; border-radius: 3px; font-size: 0.78rem; }
+.horarios-titulo { margin-top: 16px; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gris); }

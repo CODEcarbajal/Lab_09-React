@@ -1,0 +1,13 @@
+:root {
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  color: #282320;
+  background: #f7f4ed;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --papel: #f7f4ed;
+  --tinta: #282320;
+  --vino: #702d3e;
+  --gris: #685f58;
+  --borde: #dcd6cb;
+  --ancho: 1200px;
+}

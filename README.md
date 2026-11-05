@@ -22,3 +22,4 @@ npm run lint
 
 1. Plantilla oficial creada con `npm create vite@latest cine-lab09 -- --template react --no-interactive`, dependencias instaladas y servidor iniciado.
 2. Andamiaje eliminado: HTML en español y componentes de entrada mínimos.
+3. `src/componentes`, `src/datos` y `src/estilos`: CSS por variables, base, distribución y componentes, importados desde `index.css`. No se proporcionó la guía externa; esta arquitectura queda como propuesta adaptable.

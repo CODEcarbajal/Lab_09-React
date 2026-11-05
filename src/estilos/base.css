@@ -1,0 +1,13 @@
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
+body { margin: 0; }
+a { color: inherit; text-underline-offset: 5px; }
+a:focus-visible { outline: 3px solid var(--vino); outline-offset: 5px; }
+img { display: block; max-width: 100%; }
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; }
+p { line-height: 1.65; }
+::selection { color: white; background: var(--vino); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
