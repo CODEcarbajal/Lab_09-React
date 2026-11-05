@@ -1,7 +1,6 @@
 .contenedor { width: min(var(--ancho), calc(100% - 48px)); margin-inline: auto; }
-.portada { padding-block: 64px 48px; border-bottom: 1px solid var(--borde); }
+.portada { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: center; gap: 48px; padding-block: 48px; border-bottom: 1px solid var(--borde); }
 .portada h1 { max-width: 800px; margin-block: 18px; font-size: clamp(2.8rem, 6vw, 5.2rem); line-height: 1.06; letter-spacing: -0.045em; }
-.portada h1 em { color: var(--vino); }
 .portada p { max-width: 540px; color: var(--gris); }
 .cartelera { padding-block: 36px 64px; }
 .titulo-seccion { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 28px; }
@@ -10,7 +9,7 @@
 @media (max-width: 960px) { .rejilla { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 540px) {
   .contenedor { width: calc(100% - 32px); }
-  .portada { padding-block: 40px 32px; }
+  .portada { grid-template-columns: 1fr; gap: 28px; padding-block: 32px; }
   .rejilla { grid-template-columns: 1fr; }
   .titulo-seccion { align-items: start; flex-direction: column; gap: 8px; }
 }

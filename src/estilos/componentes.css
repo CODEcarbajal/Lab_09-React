@@ -1,5 +1,9 @@
 .etiqueta { color: var(--vino); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.17em; text-transform: uppercase; }
 .nota { color: var(--gris); font-size: 0.8rem; }
+.portada-imagen { width: 100%; max-width: 330px; justify-self: center; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 3px; }
+.portada-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 20px; font-size: 0.85rem; }
+.portada-enlace { display: inline-flex; align-items: center; gap: 16px; margin-top: 28px; padding: 13px 20px; background: var(--vino); color: white; text-decoration: none; border-radius: 3px; }
+.portada-enlace:hover { background: #55222f; }
 .pelicula img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 3px; }
 .pelicula-meta { display: flex; justify-content: space-between; align-items: center; margin-block: 16px 10px; font-size: 0.75rem; }
 .clasificacion { padding: 4px 7px; border: 1px solid var(--borde); border-radius: 3px; }
