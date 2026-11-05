@@ -88,7 +88,7 @@ for (const [indice, caso] of casos.entries()) {
 }
 
 registro.push('', 'Resultado general: 3 problemas reproducidos y 3 correcciones verificadas.')
-const salida = `${registro.join('\n')}\n`
+const salida = `${registro.join('\n').replace(/[\t ]+$/gm, '')}\n`
 console.log(salida)
 
 if (process.argv.includes('--registrar')) {

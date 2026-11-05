@@ -23,9 +23,9 @@ Transform failed with 1 error:
    ╭─[ Ejemplo.jsx:1:38 ]
    │
  1 │ const ejemplo = (<h1>Cine Aurora</h1><p>Cartelera</p>)
-   │                                      ┬  
-   │                                      ╰── 
-   │ 
+   │                                      ┬
+   │                                      ╰──
+   │
    │ Help: Did you want a JSX fragment `<>...</>`?
 ───╯
 
