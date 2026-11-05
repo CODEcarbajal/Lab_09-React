@@ -1,4 +1,4 @@
-export default function PeliculaCard({ pelicula }) {
+export default function MovieCard({ pelicula }) {
   return (
     <article className="pelicula" aria-labelledby={`titulo-${pelicula.id}`}>
       <img src={pelicula.imagen} alt={`Cartel ilustrado de ${pelicula.titulo}`} width="600" height="800" />

@@ -1,4 +1,4 @@
-import PeliculaCard from './PeliculaCard.jsx'
+import MovieCard from './MovieCard.jsx'
 
 export default function Cartelera({ peliculas }) {
   return (
@@ -8,7 +8,7 @@ export default function Cartelera({ peliculas }) {
         <p className="nota">{peliculas.length} películas · Horarios de demostración</p>
       </div>
       <div className="rejilla">
-        {peliculas.map((pelicula) => <PeliculaCard key={pelicula.id} pelicula={pelicula} />)}
+        {peliculas.map((pelicula) => <MovieCard key={pelicula.id} pelicula={pelicula} />)}
       </div>
     </section>
   )
