@@ -1,7 +1,7 @@
 import Footer from './componentes/Footer.jsx'
 import { cine, navegacion } from './datos/cine.js'
 import Header from './componentes/Header.jsx'
-import Cartelera from './componentes/Cartelera.jsx'
+import MovieList from './componentes/MovieList.jsx'
 import { peliculas } from './datos/peliculas.js'
 
 export default function App() {
@@ -14,7 +14,7 @@ export default function App() {
           <h1 id="titulo-principal">Historias que se quedan<br /><em>contigo.</em></h1>
           <p>Apaga el mundo un momento. Descubre tu próxima película y encuentra la función perfecta para ti.</p>
         </section>
-        <Cartelera peliculas={peliculas} />
+        <MovieList peliculas={peliculas} />
       </main>
       <Footer cine={cine} />
     </>

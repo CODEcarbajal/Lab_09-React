@@ -1,6 +1,6 @@
 import MovieCard from './MovieCard.jsx'
 
-export default function Cartelera({ peliculas }) {
+export default function MovieList({ peliculas }) {
   return (
     <section id="cartelera" className="cartelera" aria-labelledby="titulo-cartelera">
       <div className="titulo-seccion">
