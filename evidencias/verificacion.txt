@@ -1,0 +1,10 @@
+Laboratorio 09 — Verificación de componentes y datos
+Node v24.22.0 | React 19.3.0 | Vite 8.3.4
+Reproducción: npm test -- --registrar
+Alcance: renderizado de componentes en memoria; no sustituye la prueba del servidor en navegador.
+OK — Cartelera con al menos ocho películas completas e imágenes existentes
+OK — Hero cambia título, cartel, sinopsis, clasificación, valoración y horarios al recibir otras props
+OK — MovieCard cambia título, cartel, sinopsis, clasificación, valoración y horarios al recibir otras props
+OK — MovieList renderiza una tarjeta por película y admite una lista vacía
+OK — App integra Header, Hero, las ocho tarjetas y Footer con un único h1
+OK — Renderizado sin advertencias de React sobre class o key

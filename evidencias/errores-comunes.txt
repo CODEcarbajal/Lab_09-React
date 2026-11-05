@@ -1,0 +1,47 @@
+Laboratorio 09 — Registro de errores comunes
+Alumno: Luis (luiscucho-oss)
+Node v24.22.0 | React 19.3.0 | Vite 8.3.4
+Reproducción: npm run errores -- --registrar
+Entorno: renderizado de React en desarrollo y compilador JSX de Vite, sin servidor HTTP.
+
+1. class en lugar de className
+Tipo: Advertencia de React
+Código incorrecto: const ejemplo = <div class="cartelera">Cine Aurora</div>
+Mensaje observado:
+Invalid DOM property `class`. Did you mean `className`?
+Código corregido: const ejemplo = <div className="cartelera">Cine Aurora</div>
+En JSX se usa className para asignar clases CSS. La advertencia no detiene la compilación.
+Resultado: problema reproducido y corrección sin advertencias.
+
+2. Dos nodos raíz sin contenedor
+Tipo: Error de sintaxis JSX
+Código incorrecto: const ejemplo = (<h1>Cine Aurora</h1><p>Cartelera</p>)
+Mensaje observado:
+Transform failed with 1 error:
+
+[PARSE_ERROR] Adjacent JSX elements must be wrapped in an enclosing tag.
+   ╭─[ Ejemplo.jsx:1:38 ]
+   │
+ 1 │ const ejemplo = (<h1>Cine Aurora</h1><p>Cartelera</p>)
+   │                                      ┬  
+   │                                      ╰── 
+   │ 
+   │ Help: Did you want a JSX fragment `<>...</>`?
+───╯
+
+Código corregido: const ejemplo = (<><h1>Cine Aurora</h1><p>Cartelera</p></>)
+El JSX debe tener una sola raíz. Un fragmento agrupa los nodos sin añadir un elemento al DOM.
+Resultado: problema reproducido y corrección sin advertencias.
+
+3. map sin la propiedad key
+Tipo: Advertencia de React
+Código incorrecto: const ejemplo = <ul>{["16:00", "18:30"].map(hora => <li>{hora}</li>)}</ul>
+Mensaje observado:
+Each child in a list should have a unique "key" prop.
+
+Check the top-level render call using <li>. See https://react.dev/link/warning-keys for more information.
+Código corregido: const ejemplo = <ul>{["16:00", "18:30"].map(hora => <li key={hora}>{hora}</li>)}</ul>
+La key identifica cada elemento entre sus hermanos. MovieList usa pelicula.id y los horarios usan hora.
+Resultado: problema reproducido y corrección sin advertencias.
+
+Resultado general: 3 problemas reproducidos y 3 correcciones verificadas.
