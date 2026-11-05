@@ -2,8 +2,21 @@
 .nota { color: var(--gris); font-size: 0.8rem; }
 .portada-imagen { width: 100%; height: auto; max-width: 330px; justify-self: center; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 3px; }
 .portada-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 20px; font-size: 0.85rem; }
-.portada-enlace { display: inline-flex; align-items: center; gap: 16px; margin-top: 28px; padding: 13px 20px; background: var(--vino); color: white; text-decoration: none; border-radius: 3px; }
-.portada-enlace:hover { background: #55222f; }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 46px; padding: 12px 18px; border: 1px solid transparent; border-radius: 3px; font-size: 0.85rem; font-weight: 700; line-height: 1.35; text-align: center; text-decoration: none; }
+.button--primary { background: var(--vino); color: white; }
+.button--primary:hover { background: #55222f; }
+.button--secondary { background: transparent; border-color: var(--vino); color: var(--vino); }
+.button--secondary:hover { background: #eee3e2; }
+.button:disabled { color: var(--gris); border-color: var(--borde); background: #eee8dd; }
+.portada-enlace { margin-top: 28px; gap: 16px; }
+.favorite-button { width: 100%; margin-top: 20px; }
+.favorite-button span { font-size: 1.15rem; }
+.favorites-count { margin: -12px 0 24px; color: var(--vino); font-size: 0.85rem; font-weight: 700; }
+.movie-search { min-width: 0; }
+.movie-search-controls { display: flex; align-items: stretch; gap: 12px; }
+@media (max-width: 380px) {
+  .movie-search-controls { flex-direction: column; }
+}
 .pelicula img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 3px; }
 .pelicula-meta { display: flex; justify-content: space-between; align-items: center; margin-block: 16px 10px; font-size: 0.75rem; }
 .clasificacion { padding: 4px 7px; border: 1px solid var(--borde); border-radius: 3px; }

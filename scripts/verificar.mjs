@@ -51,6 +51,8 @@ try {
   const { default: Hero } = await servidor.ssrLoadModule('/src/componentes/Hero.jsx')
   const { default: MovieCard } = await servidor.ssrLoadModule('/src/componentes/MovieCard.jsx')
   const { default: MovieList } = await servidor.ssrLoadModule('/src/componentes/MovieList.jsx')
+  const { default: Button } = await servidor.ssrLoadModule('/src/componentes/Button/Button.jsx')
+  const { default: MovieSearch } = await servidor.ssrLoadModule('/src/componentes/MovieSearch/MovieSearch.jsx')
   const renderizar = (componente, props) => renderToStaticMarkup(createElement(componente, props))
   const alternativa = { id: 'prueba', titulo: 'Película de prueba', imagen: '/carteles/verano.svg', sinopsis: 'Sinopsis de prueba mediante props.', clasificacion: 'ATP', valoracion: 2.5, horarios: ['13:05', '23:10'] }
 
@@ -67,6 +69,34 @@ try {
   comprobar('MovieList renderiza una tarjeta por película y admite una lista vacía', () => {
     assert.equal((renderizar(MovieList, { peliculas }).match(/<article\b/g) || []).length, peliculas.length)
     assert.equal((renderizar(MovieList, { peliculas: [] }).match(/<article\b/g) || []).length, 0)
+  })
+
+  comprobar('Button admite contenido, variantes, estado deshabilitado y enlaces de navegación', () => {
+    const button = renderizar(Button, { children: 'Limpiar', variant: 'secondary', disabled: true })
+    assert.match(button, /<button[^>]*class="button button--secondary"[^>]*type="button"[^>]*disabled=""/)
+    assert.ok(button.includes('Limpiar'))
+    const link = renderizar(Button, { children: 'Explorar', href: '#cartelera' })
+    assert.match(link, /<a[^>]*class="button button--primary"[^>]*href="#cartelera"/)
+    assert.ok(!link.includes('type="button"'))
+  })
+
+  comprobar('MovieCard refleja el estado de favorita recibido de App de forma accesible', () => {
+    for (const isFavorite of [false, true]) {
+      const html = renderizar(MovieCard, { pelicula: alternativa, isFavorite, onToggleFavorite() {} })
+      assert.ok(html.includes(`aria-pressed="${isFavorite}"`))
+      assert.ok(html.includes(`${isFavorite ? 'Quitar de' : 'Agregar a'} favoritas: ${alternativa.titulo}`))
+      assert.ok(html.includes(isFavorite ? 'En favoritas' : 'Agregar a favoritas'))
+    }
+  })
+
+  comprobar('MovieSearch recibe su valor por props y solo permite limpiar cuando hay texto', () => {
+    const empty = renderizar(MovieSearch, { value: '', onChange() {} })
+    const filled = renderizar(MovieSearch, { value: 'Órbita & verano', onChange() {} })
+    assert.match(filled, /type="search"[^>]*value="Órbita &amp; verano"/)
+    assert.match(empty, /<button[^>]*disabled=""/)
+    assert.ok(!filled.includes('disabled=""'))
+    const id = filled.match(/<input[^>]*id="([^"]+)"/)[1]
+    assert.ok(filled.includes(`for="${id}"`))
   })
 
   comprobar('App integra Header, Hero, las ocho tarjetas y Footer con un único h1', () => {

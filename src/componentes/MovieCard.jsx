@@ -1,4 +1,6 @@
-export default function MovieCard({ pelicula }) {
+import Button from './Button/Button.jsx'
+
+export default function MovieCard({ pelicula, isFavorite = false, onToggleFavorite }) {
   return (
     <article className="pelicula" aria-labelledby={`titulo-${pelicula.id}`}>
       <img src={pelicula.imagen} alt={`Cartel ilustrado de ${pelicula.titulo}`} width="600" height="800" />
@@ -12,6 +14,16 @@ export default function MovieCard({ pelicula }) {
       <ul className="horarios" aria-label={`Horarios de ${pelicula.titulo}`}>
         {pelicula.horarios.map((hora) => <li key={hora}><time dateTime={hora}>{hora}</time></li>)}
       </ul>
+      <Button
+        variant={isFavorite ? 'primary' : 'secondary'}
+        className="favorite-button"
+        aria-pressed={isFavorite}
+        aria-label={`${isFavorite ? 'Quitar de' : 'Agregar a'} favoritas: ${pelicula.titulo}`}
+        onClick={() => onToggleFavorite(pelicula.id)}
+      >
+        <span aria-hidden="true">{isFavorite ? '♥' : '♡'}</span>
+        {isFavorite ? 'En favoritas' : 'Agregar a favoritas'}
+      </Button>
     </article>
   )
 }

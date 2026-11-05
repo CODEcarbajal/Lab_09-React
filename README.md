@@ -1,5 +1,23 @@
 # Cine Aurora · Laboratorio 09
 
+## Laboratorio 10 · Componentes y eventos · Primera parte
+
+Rama de Luis (`luiscucho-oss`): `feat/lab10-componentes-eventos`. Se parte de la versión terminada del laboratorio 9 y se implementan los pasos 1 a 6:
+
+- Estilos de formulario, tipografía, foco de teclado y botones adaptables.
+- `Button/Button.jsx`: contenido mediante `children`, variantes `primary` y `secondary`, eventos y atributos nativos. Se reutiliza en Hero, favoritas y el control Limpiar; con `href` conserva la semántica de enlace.
+- `App`: estados `favoriteIds` y `searchText`; `toggleFavorite` agrega o quita IDs mediante una actualización funcional.
+- `App → MovieList → MovieCard`: estado y función recibidos por props. Las tarjetas muestran el estado con texto, color y `aria-pressed`; el contador anuncia los cambios.
+- `MovieSearch/MovieSearch.jsx`: entrada controlada por `value` y `onChange`, con etiqueta asociada y botón Limpiar.
+
+La segunda parte del equipo comprende los pasos 7 a 12. El buscador todavía no filtra la cartelera: quedan pendientes el retardo, filtrado y estado vacío, integración dentro del banner, persistencia, entregable y publicación. Al recargar se reinician los estados de esta primera parte.
+
+Validación: `npm test` y `npm run build`. La prueba interactiva se realiza agregando dos favoritas, quitando una, escribiendo en el buscador y limpiándolo; la segunda favorita debe conservarse. El servidor de desarrollo se inicia con `npm run dev`.
+
+En esta sesión el entorno bloqueó la apertura del puerto de Vite (`EPERM`), por lo que los eventos se comprobaron en Chrome con el bundle de producción autocontenido en una copia temporal. La orden `npm run lint` no pudo ejecutarse porque `oxlint` no está instalado en las dependencias disponibles. No se cambiaron las versiones declaradas ni el lockfile.
+
+---
+
 Proyecto educativo de React con Vite. La cartelera y el contacto serán ficticios.
 
 ## Requisitos y ejecución

@@ -1,3 +1,5 @@
+import Button from './Button/Button.jsx'
+
 export default function Hero({ pelicula }) {
   return (
     <section className="portada" aria-labelledby="titulo-principal">
@@ -17,7 +19,7 @@ export default function Hero({ pelicula }) {
             <li key={hora}><time dateTime={hora}>{hora}</time></li>
           ))}
         </ul>
-        <a className="portada-enlace" href="#cartelera">Explorar la cartelera <span aria-hidden="true">↗</span></a>
+        <Button className="portada-enlace" href="#cartelera">Explorar la cartelera <span aria-hidden="true">↗</span></Button>
       </div>
       <img className="portada-imagen" src={pelicula.imagen} alt={`Cartel ilustrado de ${pelicula.titulo}`} width="600" height="800" />
     </section>
