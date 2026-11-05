@@ -9,3 +9,15 @@
 .horarios { display: flex; gap: 7px; flex-wrap: wrap; list-style: none; padding: 0; margin: 12px 0 0; }
 .horarios li { padding: 6px 10px; background: #eee8dd; border-radius: 3px; font-size: 0.78rem; }
 .horarios-titulo { margin-top: 16px; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gris); }
+.cabecera { border-bottom: 1px solid var(--borde); }
+.cabecera-interior { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-block: 23px; }
+.marca { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-family: Georgia, serif; font-size: 1.5rem; }
+.marca-icono { color: var(--vino); font-size: 2.7rem; }
+.marca small { display: block; margin-top: 4px; font-family: 'Trebuchet MS', Arial, sans-serif; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gris); }
+.cabecera nav { display: flex; flex-wrap: wrap; gap: 28px; font-size: 0.85rem; }
+.cabecera nav a { text-decoration: none; padding-block: 8px; }
+.cabecera nav a:hover { color: var(--vino); text-decoration: underline; }
+@media (max-width: 540px) {
+  .cabecera-interior { align-items: flex-start; flex-direction: column; gap: 12px; padding-block: 16px; }
+  .cabecera nav { gap: 24px; }
+}

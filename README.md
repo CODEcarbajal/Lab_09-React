@@ -24,3 +24,4 @@ npm run lint
 2. Andamiaje eliminado: HTML en español y componentes de entrada mínimos.
 3. `src/componentes`, `src/datos` y `src/estilos`: CSS por variables, base, distribución y componentes, importados desde `index.css`. No se proporcionó la guía externa; esta arquitectura queda como propuesta adaptable.
 4. Ocho películas ficticias con título, cartel SVG local original, sinopsis, clasificación, valoración sobre 5 y horarios. `App → Cartelera → PeliculaCard` demuestra props y listas con claves estables. ATP significa apta para todo público; 14+ y 16+ son edades mínimas ficticias. Los horarios se muestran en formato de 24 horas.
+5. Header recibe nombre y navegación mediante props. Comprobado visualmente en el navegador antes de implementar Footer; el enlace Cartelera llega a `#cartelera`.
