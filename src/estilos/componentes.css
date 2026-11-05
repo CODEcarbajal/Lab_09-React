@@ -21,3 +21,17 @@
   .cabecera-interior { align-items: flex-start; flex-direction: column; gap: 12px; padding-block: 16px; }
   .cabecera nav { gap: 24px; }
 }
+.pie { background: #292422; color: #f7f4ed; padding-block: 44px 24px; }
+.pie-columnas { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 40px; padding-bottom: 36px; }
+.pie h2 { font-size: 1.8rem; margin-bottom: 12px; }
+.pie h3 { font-family: 'Trebuchet MS', Arial, sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px; }
+.pie p, .pie address, .pie a { font-size: 0.82rem; line-height: 1.8; }
+.pie p, .pie address { color: #d4ccc4; }
+.pie address { display: flex; flex-direction: column; font-style: normal; }
+.pie-legal { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid #554b44; padding-top: 20px; }
+.pie-legal p, .pie-legal a { font-size: 0.72rem; }
+.pie a:focus-visible { outline-color: #f0c3a5; }
+@media (max-width: 760px) {
+  .pie-columnas { grid-template-columns: 1fr; gap: 28px; }
+  .pie-legal { flex-direction: column; gap: 10px; }
+}

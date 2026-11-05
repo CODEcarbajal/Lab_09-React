@@ -1,3 +1,5 @@
+import Footer from './componentes/Footer.jsx'
+import { cine, navegacion } from './datos/cine.js'
 import Header from './componentes/Header.jsx'
 import Cartelera from './componentes/Cartelera.jsx'
 import { peliculas } from './datos/peliculas.js'
@@ -5,10 +7,7 @@ import { peliculas } from './datos/peliculas.js'
 export default function App() {
   return (
     <>
-      <Header nombre="Cine Aurora" navegacion={[
-        { texto: 'Inicio', destino: '#inicio' },
-        { texto: 'Cartelera', destino: '#cartelera' },
-      ]} />
+      <Header nombre={cine.nombre} navegacion={navegacion} />
       <main id="inicio" className="contenedor">
         <section className="portada" aria-labelledby="titulo-principal">
           <span className="etiqueta">Cine Aurora · El placer de ir al cine</span>
@@ -17,6 +16,7 @@ export default function App() {
         </section>
         <Cartelera peliculas={peliculas} />
       </main>
+      <Footer cine={cine} />
     </>
   )
 }
