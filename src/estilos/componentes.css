@@ -2,6 +2,8 @@
 .nota { color: var(--gris); font-size: 0.8rem; }
 .portada-imagen { width: 100%; height: auto; max-width: 330px; justify-self: center; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 3px; }
 .portada-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 20px; font-size: 0.85rem; }
+.portada-buscador { max-width: 540px; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--borde); }
+.portada-buscador h2 { margin: 8px 0 14px; font-size: 1.45rem; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 46px; padding: 12px 18px; border: 1px solid transparent; border-radius: 3px; font-size: 0.85rem; font-weight: 700; line-height: 1.35; text-align: center; text-decoration: none; }
 .button--primary { background: var(--vino); color: white; }
 .button--primary:hover { background: #55222f; }
@@ -12,6 +14,7 @@
 .favorite-button { width: 100%; margin-top: 20px; }
 .favorite-button span { font-size: 1.15rem; }
 .favorites-count { margin: -12px 0 24px; color: var(--vino); font-size: 0.85rem; font-weight: 700; }
+.estado-vacio { padding: 32px; border: 1px dashed var(--borde); color: var(--gris); text-align: center; }
 .movie-search { min-width: 0; }
 .movie-search-controls { display: flex; align-items: stretch; gap: 12px; }
 @media (max-width: 380px) {

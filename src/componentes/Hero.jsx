@@ -1,6 +1,7 @@
 import Button from './Button/Button.jsx'
+import MovieSearch from './MovieSearch/MovieSearch.jsx'
 
-export default function Hero({ pelicula }) {
+export default function Hero({ pelicula, searchValue, onSearchChange }) {
   return (
     <section className="portada" aria-labelledby="titulo-principal">
       <div className="portada-contenido">
@@ -19,6 +20,13 @@ export default function Hero({ pelicula }) {
             <li key={hora}><time dateTime={hora}>{hora}</time></li>
           ))}
         </ul>
+        {onSearchChange && (
+          <div className="portada-buscador">
+            <span className="etiqueta">Tu próxima historia</span>
+            <h2>¿Qué película tienes en mente?</h2>
+            <MovieSearch value={searchValue} onChange={onSearchChange} />
+          </div>
+        )}
         <Button className="portada-enlace" href="#cartelera">Explorar la cartelera <span aria-hidden="true">↗</span></Button>
       </div>
       <img className="portada-imagen" src={pelicula.imagen} alt={`Cartel ilustrado de ${pelicula.titulo}`} width="600" height="800" />

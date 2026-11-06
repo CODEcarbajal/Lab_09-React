@@ -4,7 +4,6 @@ import { cine, navegacion } from './datos/cine.js'
 import Header from './componentes/Header.jsx'
 import Hero from './componentes/Hero.jsx'
 import MovieList from './componentes/MovieList.jsx'
-import MovieSearch from './componentes/MovieSearch/MovieSearch.jsx'
 import { peliculas } from './datos/peliculas.js'
 
 export default function App() {
@@ -50,14 +49,7 @@ export default function App() {
     <>
       <Header nombre={cine.nombre} navegacion={navegacion} />
       <main id="inicio" className="contenedor">
-        <Hero pelicula={peliculas[0]} />
-        <section className="search-panel" aria-labelledby="search-heading">
-          <div>
-            <span className="etiqueta">Tu próxima historia</span>
-            <h2 id="search-heading">¿Qué película tienes en mente?</h2>
-          </div>
-          <MovieSearch value={searchText} onChange={handleSearchChange} />
-        </section>
+        <Hero pelicula={peliculas[0]} searchValue={searchText} onSearchChange={handleSearchChange} />
         <MovieList peliculas={peliculasFiltradas} favoriteIds={favoriteIds} onToggleFavorite={toggleFavorite} />
       </main>
       <Footer cine={cine} />

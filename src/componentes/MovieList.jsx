@@ -10,16 +10,20 @@ export default function MovieList({ peliculas, favoriteIds = [], onToggleFavorit
       <p className="favorites-count" role="status">
         {favoriteIds.length} {favoriteIds.length === 1 ? 'película favorita' : 'películas favoritas'}
       </p>
-      <div className="rejilla">
-        {peliculas.map((pelicula) => (
-          <MovieCard
-            key={pelicula.id}
-            pelicula={pelicula}
-            isFavorite={favoriteIds.includes(pelicula.id)}
-            onToggleFavorite={onToggleFavorite}
-          />
-        ))}
-      </div>
+      {peliculas.length === 0 ? (
+        <p className="estado-vacio" role="status">No encontramos películas que coincidan con tu búsqueda.</p>
+      ) : (
+        <div className="rejilla">
+          {peliculas.map((pelicula) => (
+            <MovieCard
+              key={pelicula.id}
+              pelicula={pelicula}
+              isFavorite={favoriteIds.includes(pelicula.id)}
+              onToggleFavorite={onToggleFavorite}
+            />
+          ))}
+        </div>
+      )}
     </section>
   )
 }
