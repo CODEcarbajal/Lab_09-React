@@ -6,10 +6,28 @@ import Hero from './componentes/Hero.jsx'
 import MovieList from './componentes/MovieList.jsx'
 import { peliculas } from './datos/peliculas.js'
 
+const FAVORITES_STORAGE_KEY = 'cine-aurora-favoritas'
+
 export default function App() {
-  const [favoriteIds, setFavoriteIds] = useState([])
+  const [favoriteIds, setFavoriteIds] = useState(() => {
+    try {
+      const savedFavorites = window.localStorage.getItem(FAVORITES_STORAGE_KEY)
+      const parsedFavorites = savedFavorites ? JSON.parse(savedFavorites) : []
+      return Array.isArray(parsedFavorites) ? parsedFavorites : []
+    } catch {
+      return []
+    }
+  })
   const [searchText, setSearchText] = useState('')
   const [debouncedSearchText, setDebouncedSearchText] = useState('')
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(favoriteIds))
+    } catch {
+      
+    }
+  }, [favoriteIds])
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
