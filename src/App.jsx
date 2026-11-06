@@ -11,7 +11,7 @@ export default function App() {
       <Header nombre={cine.nombre} navegacion={navegacion} />
       <main id="inicio" className="contenedor">
         <Hero pelicula={peliculas[0]} />
-        <MovieList peliculas={peliculas} />
+        <MovieList peliculas={peliculas} /> 
       </main>
       <Footer cine={cine} />
     </>
