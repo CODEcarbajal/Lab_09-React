@@ -1,13 +1,15 @@
-// Cartelera ficticia para practicar componentes y props. Valoraciones sobre 5.
-export const peliculas = [
+import { adaptarPelicula } from '../utilidades/adaptarPelicula.js'
+
+// Cartelera ficticia en el formato de origen. Valoraciones sobre 5.
+const cartelera = [
   {
     "id": "orbita",
-    "titulo": "Órbita lejana",
-    "imagen": "/carteles/orbita.svg",
-    "sinopsis": "Una astronauta recibe una señal que podría cambiar el destino de su regreso a casa.",
-    "clasificacion": "14+",
-    "valoracion": 4.8,
-    "horarios": [
+    "title": "Órbita lejana",
+    "poster": "/carteles/orbita.svg",
+    "overview": "Una astronauta recibe una señal que podría cambiar el destino de su regreso a casa.",
+    "certification": "14+",
+    "rating": 4.8,
+    "showtimes": [
       "16:00",
       "18:30",
       "21:00"
@@ -15,12 +17,12 @@ export const peliculas = [
   },
   {
     "id": "verano",
-    "titulo": "El último verano",
-    "imagen": "/carteles/verano.svg",
-    "sinopsis": "Dos amigos recorren la costa para cumplir una promesa antes de tomar caminos distintos.",
-    "clasificacion": "ATP",
-    "valoracion": 4.5,
-    "horarios": [
+    "title": "El último verano",
+    "poster": "/carteles/verano.svg",
+    "overview": "Dos amigos recorren la costa para cumplir una promesa antes de tomar caminos distintos.",
+    "certification": "ATP",
+    "rating": 4.5,
+    "showtimes": [
       "15:00",
       "17:20",
       "19:40"
@@ -28,12 +30,12 @@ export const peliculas = [
   },
   {
     "id": "bosque",
-    "titulo": "El bosque secreto",
-    "imagen": "/carteles/bosque.svg",
-    "sinopsis": "Una joven exploradora descubre una comunidad que protege la memoria del bosque.",
-    "clasificacion": "ATP",
-    "valoracion": 4.7,
-    "horarios": [
+    "title": "El bosque secreto",
+    "poster": "/carteles/bosque.svg",
+    "overview": "Una joven exploradora descubre una comunidad que protege la memoria del bosque.",
+    "certification": "ATP",
+    "rating": 4.7,
+    "showtimes": [
       "14:00",
       "16:15",
       "18:30"
@@ -41,12 +43,12 @@ export const peliculas = [
   },
   {
     "id": "medianoche",
-    "titulo": "Después de medianoche",
-    "imagen": "/carteles/medianoche.svg",
-    "sinopsis": "Un pianista y una fotógrafa se encuentran en una ciudad que nunca parece dormir.",
-    "clasificacion": "14+",
-    "valoracion": 4.6,
-    "horarios": [
+    "title": "Después de medianoche",
+    "poster": "/carteles/medianoche.svg",
+    "overview": "Un pianista y una fotógrafa se encuentran en una ciudad que nunca parece dormir.",
+    "certification": "14+",
+    "rating": 4.6,
+    "showtimes": [
       "17:00",
       "19:15",
       "21:30"
@@ -54,12 +56,12 @@ export const peliculas = [
   },
   {
     "id": "marea",
-    "titulo": "Marea adentro",
-    "imagen": "/carteles/marea.svg",
-    "sinopsis": "Una bióloga marina vuelve a su pueblo para salvar el arrecife que marcó su infancia.",
-    "clasificacion": "ATP",
-    "valoracion": 4.4,
-    "horarios": [
+    "title": "Marea adentro",
+    "poster": "/carteles/marea.svg",
+    "overview": "Una bióloga marina vuelve a su pueblo para salvar el arrecife que marcó su infancia.",
+    "certification": "ATP",
+    "rating": 4.4,
+    "showtimes": [
       "14:30",
       "17:00",
       "19:30"
@@ -67,12 +69,12 @@ export const peliculas = [
   },
   {
     "id": "eco",
-    "titulo": "El eco del silencio",
-    "imagen": "/carteles/eco.svg",
-    "sinopsis": "Una periodista sigue la pista de una grabación que nadie recuerda haber realizado.",
-    "clasificacion": "16+",
-    "valoracion": 4.3,
-    "horarios": [
+    "title": "El eco del silencio",
+    "poster": "/carteles/eco.svg",
+    "overview": "Una periodista sigue la pista de una grabación que nadie recuerda haber realizado.",
+    "certification": "16+",
+    "rating": 4.3,
+    "showtimes": [
       "18:00",
       "20:15",
       "22:30"
@@ -80,12 +82,12 @@ export const peliculas = [
   },
   {
     "id": "casa",
-    "titulo": "Una casa en las nubes",
-    "imagen": "/carteles/casa.svg",
-    "sinopsis": "Un inventor y su nieta construyen una máquina para encontrar un lugar al que pertenecer.",
-    "clasificacion": "ATP",
-    "valoracion": 4.9,
-    "horarios": [
+    "title": "Una casa en las nubes",
+    "poster": "/carteles/casa.svg",
+    "overview": "Un inventor y su nieta construyen una máquina para encontrar un lugar al que pertenecer.",
+    "certification": "ATP",
+    "rating": 4.9,
+    "showtimes": [
       "13:30",
       "15:45",
       "18:00"
@@ -93,15 +95,17 @@ export const peliculas = [
   },
   {
     "id": "ruta",
-    "titulo": "Ruta al amanecer",
-    "imagen": "/carteles/ruta.svg",
-    "sinopsis": "Tres desconocidos comparten un viaje por los Andes y descubren una nueva oportunidad.",
-    "clasificacion": "14+",
-    "valoracion": 4.5,
-    "horarios": [
+    "title": "Ruta al amanecer",
+    "poster": "/carteles/ruta.svg",
+    "overview": "Tres desconocidos comparten un viaje por los Andes y descubren una nueva oportunidad.",
+    "certification": "14+",
+    "rating": 4.5,
+    "showtimes": [
       "15:30",
       "18:00",
       "20:30"
     ]
   }
 ]
+
+export const peliculas = cartelera.map(adaptarPelicula)
