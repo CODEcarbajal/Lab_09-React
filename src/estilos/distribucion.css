@@ -7,14 +7,12 @@
 .search-panel h2 { margin-top: 10px; font-size: clamp(1.6rem, 3vw, 2rem); }
 .titulo-seccion { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 28px; }
 .titulo-seccion h2 { font-size: 2rem; }
-.rejilla { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 24px; }
+.rejilla { display: grid; grid-template-columns: repeat(var(--columnas), minmax(0, 1fr)); gap: 40px 24px; }
 @media (max-width: 960px) {
-  .rejilla { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .search-panel { grid-template-columns: 1fr; gap: 20px; }
 }
 @media (max-width: 540px) {
   .contenedor { width: calc(100% - 32px); }
   .portada { grid-template-columns: 1fr; gap: 28px; padding-block: 32px; }
-  .rejilla { grid-template-columns: 1fr; }
   .titulo-seccion { align-items: start; flex-direction: column; gap: 8px; }
 }

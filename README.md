@@ -6,6 +6,14 @@ La rama `codex/lab11-comunicacion-componentes` parte del cierre del Laboratorio 
 
 Antes de iniciar los cambios se comprobaron las ocho tarjetas, el filtro por título y la persistencia de favoritas al recargar. También se ejecutaron `npm test`, `npm run lint` y `npm run build`.
 
+### Pasos 1 a 6
+
+- Los estilos comparten variables tipográficas y utilidades para texto secundario y cifras tabulares.
+- `adaptarPelicula` convierte el formato de origen del catálogo al modelo que consumen `Hero` y `MovieCard`. Conserva los IDs usados en `localStorage`.
+- `MovieCard` emite `onToggleFavorite`. `App` actualiza las favoritas y usa Sonner para mostrar el aviso correspondiente.
+- `useDebounce(value, delay)` cancela el temporizador al cambiar el valor o desmontar el componente. `Cartelera` lo usa con 500 ms y comparte el estado de búsqueda entre `Hero` y `MovieList`.
+- `useWindowSize()` devuelve `{ width, height }` en píxeles y retira su suscripción a `resize` al desmontar. `MovieList` decide si muestra una columna hasta 540 px, dos hasta 960 px o cuatro a partir de 961 px. El carrusel de estrenos puede reutilizar el mismo hook en la segunda parte.
+
 ## Laboratorio 10 · Componentes y eventos · Primera parte
 
 Rama de Luis (`luiscucho-oss`): `feat/lab10-componentes-eventos`. Se parte de la versión terminada del laboratorio 9 y se implementan los pasos 1 a 6:
