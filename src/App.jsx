@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { toast, Toaster } from 'sonner'
 import Footer from './componentes/Footer.jsx'
 import { cine, navegacion } from './datos/cine.js'
 import Header from './componentes/Header.jsx'
@@ -56,11 +57,20 @@ export default function App() {
   }
 
   function toggleFavorite(movieId) {
+    const pelicula = peliculas.find(({ id }) => id === movieId)
+    const wasFavorite = favoriteIds.includes(movieId)
+
     setFavoriteIds((currentIds) => (
       currentIds.includes(movieId)
         ? currentIds.filter((id) => id !== movieId)
         : [...currentIds, movieId]
     ))
+
+    if (wasFavorite) {
+      toast.info('Película quitada de favoritas', { id: movieId, description: pelicula.titulo })
+    } else {
+      toast.success('Película agregada a favoritas', { id: movieId, description: pelicula.titulo })
+    }
   }
 
   return (
@@ -71,6 +81,7 @@ export default function App() {
         <MovieList peliculas={peliculasFiltradas} favoriteIds={favoriteIds} onToggleFavorite={toggleFavorite} />
       </main>
       <Footer cine={cine} />
+      <Toaster position="bottom-right" containerAriaLabel="Notificaciones" />
     </>
   )
 }
