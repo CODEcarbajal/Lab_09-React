@@ -1,5 +1,8 @@
 :root {
-  font-family: 'Trebuchet MS', Arial, sans-serif;
+  --fuente-texto: 'Trebuchet MS', Arial, sans-serif;
+  --fuente-titulos: Georgia, 'Times New Roman', serif;
+  --tamano-nota: 0.85rem;
+  font-family: var(--fuente-texto);
   color: #282320;
   background: #f7f4ed;
   font-synthesis: none;

@@ -5,9 +5,9 @@ export default function MovieList({ peliculas, favoriteIds = [], onToggleFavorit
     <section id="cartelera" className="cartelera" aria-labelledby="titulo-cartelera">
       <div className="titulo-seccion">
         <h2 id="titulo-cartelera">En nuestra pantalla</h2>
-        <p className="nota">{peliculas.length} películas · Horarios de demostración</p>
+        <p className="texto-secundario numeros-tabulares">{peliculas.length} películas · Horarios de demostración</p>
       </div>
-      <p className="favorites-count" role="status">
+      <p className="favorites-count numeros-tabulares" role="status">
         {favoriteIds.length} {favoriteIds.length === 1 ? 'película favorita' : 'películas favoritas'}
       </p>
       {peliculas.length === 0 ? (

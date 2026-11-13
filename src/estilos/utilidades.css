@@ -1,0 +1,2 @@
+.texto-secundario { color: var(--gris); font-size: var(--tamano-nota); }
+.numeros-tabulares { font-variant-numeric: tabular-nums; }

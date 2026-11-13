@@ -21,7 +21,7 @@ export default function MovieSearch({ value, onChange }) {
         />
         <Button variant="secondary" disabled={!value} onClick={() => onChange('')}>Limpiar</Button>
       </div>
-      <p id={hintId} className="form-hint">Puedes escribir un título completo o parte de él.</p>
+      <p id={hintId} className="form-hint texto-secundario">Puedes escribir un título completo o parte de él.</p>
     </div>
   )
 }

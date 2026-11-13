@@ -1,5 +1,4 @@
 .etiqueta { color: var(--vino); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.17em; text-transform: uppercase; }
-.nota { color: var(--gris); font-size: 0.8rem; }
 .portada-imagen { width: 100%; height: auto; max-width: 330px; justify-self: center; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 3px; }
 .portada-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 20px; font-size: 0.85rem; }
 .portada-buscador { max-width: 540px; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--borde); }
@@ -31,9 +30,9 @@
 .horarios-titulo { margin-top: 16px; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gris); }
 .cabecera { border-bottom: 1px solid var(--borde); }
 .cabecera-interior { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-block: 23px; }
-.marca { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-family: Georgia, serif; font-size: 1.5rem; }
+.marca { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-family: var(--fuente-titulos); font-size: 1.5rem; }
 .marca-icono { color: var(--vino); font-size: 2.7rem; }
-.marca small { display: block; margin-top: 4px; font-family: 'Trebuchet MS', Arial, sans-serif; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gris); }
+.marca small { display: block; margin-top: 4px; font-family: var(--fuente-texto); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gris); }
 .cabecera nav { display: flex; flex-wrap: wrap; gap: 28px; font-size: 0.85rem; }
 .cabecera nav a { text-decoration: none; padding-block: 8px; }
 .cabecera nav a:hover { color: var(--vino); text-decoration: underline; }
@@ -44,7 +43,7 @@
 .pie { background: #292422; color: #f7f4ed; padding-block: 44px 24px; }
 .pie-columnas { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 40px; padding-bottom: 36px; }
 .pie h2 { font-size: 1.8rem; margin-bottom: 12px; }
-.pie h3 { font-family: 'Trebuchet MS', Arial, sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px; }
+.pie h3 { font-family: var(--fuente-texto); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px; }
 .pie p, .pie address, .pie a { font-size: 0.82rem; line-height: 1.8; }
 .pie p, .pie address { color: #d4ccc4; }
 .pie address { display: flex; flex-direction: column; font-style: normal; }
