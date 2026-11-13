@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
 import { toast, Toaster } from 'sonner'
+import Cartelera from './componentes/Cartelera.jsx'
 import Footer from './componentes/Footer.jsx'
 import { cine, navegacion } from './datos/cine.js'
 import Header from './componentes/Header.jsx'
-import Hero from './componentes/Hero.jsx'
-import MovieList from './componentes/MovieList.jsx'
 import { peliculas } from './datos/peliculas.js'
 
 const FAVORITES_STORAGE_KEY = 'cine-aurora-favoritas'
@@ -19,42 +18,14 @@ export default function App() {
       return []
     }
   })
-  const [searchText, setSearchText] = useState('')
-  const [debouncedSearchText, setDebouncedSearchText] = useState('')
 
   useEffect(() => {
     try {
       window.localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(favoriteIds))
     } catch {
-      
+      // Las favoritas siguen disponibles durante la sesión si el almacenamiento falla.
     }
   }, [favoriteIds])
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setDebouncedSearchText(searchText)
-      console.log(`[Buscador] filtrado aplicado después de 500 ms: "${searchText || '(sin filtro)'}"`)
-    }, 500)
-
-    return () => clearTimeout(timeoutId)
-  }, [searchText])
-
-  const textoNormalizado = debouncedSearchText
-    .toLocaleLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-  const peliculasFiltradas = peliculas.filter((pelicula) => (
-    pelicula.titulo
-      .toLocaleLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .includes(textoNormalizado)
-  ))
-
-  function handleSearchChange(value) {
-    console.log(`[Buscador] entrada inmediata: "${value || '(sin filtro)'}"`)
-    setSearchText(value)
-  }
 
   function toggleFavorite(movieId) {
     const pelicula = peliculas.find(({ id }) => id === movieId)
@@ -77,8 +48,7 @@ export default function App() {
     <>
       <Header nombre={cine.nombre} navegacion={navegacion} />
       <main id="inicio" className="contenedor">
-        <Hero pelicula={peliculas[0]} searchValue={searchText} onSearchChange={handleSearchChange} />
-        <MovieList peliculas={peliculasFiltradas} favoriteIds={favoriteIds} onToggleFavorite={toggleFavorite} />
+        <Cartelera favoriteIds={favoriteIds} onToggleFavorite={toggleFavorite} />
       </main>
       <Footer cine={cine} />
       <Toaster position="bottom-right" containerAriaLabel="Notificaciones" />
