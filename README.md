@@ -1,4 +1,10 @@
-# Cine Aurora · Laboratorio 09
+# Cine Aurora · Laboratorio 11
+
+## Laboratorio 11 · Comunicación entre componentes
+
+La rama `codex/lab11-comunicacion-componentes` parte del cierre del Laboratorio 10 (`6ef0cff`). Para reproducir la base, ejecuta `npm ci` y `npm run dev`, y abre la dirección que indique Vite.
+
+Antes de iniciar los cambios se comprobaron las ocho tarjetas, el filtro por título y la persistencia de favoritas al recargar. También se ejecutaron `npm test`, `npm run lint` y `npm run build`.
 
 ## Laboratorio 10 · Componentes y eventos · Primera parte
 
