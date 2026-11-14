@@ -43,7 +43,9 @@ App — favoriteIds, toggleFavorite y persistencia; deriva favoriteCount
 
 El contador no debe tener un estado independiente en `Header`: las tarjetas que lo modifican están en otra rama del árbol. Si la cabecera fuera su propietaria, las tarjetas no podrían actualizarlo por el flujo descendente de props; duplicarlo también permitiría que se desincronizara con la lista y con `localStorage`. `App` es el ancestro común que mantiene la fuente de verdad. La cabecera solo presenta el número derivado y no necesita recibir la lista completa.
 
-12. Publicación prevista en la misma rama del repositorio del equipo. La entrega al campus y las evidencias del documento compartido deben verificarse por separado; un push no equivale a entregar el informe en el campus.
+12. La segunda parte se publica en `feat/lab11-comunicacion-componentes` del repositorio del equipo, mediante commits de `luiscucho-oss`. La entrega al campus y las evidencias del documento compartido deben verificarse por separado; un push no equivale a entregar el informe en el campus.
+
+Validación de esta segunda parte: `npm test -- --registrar`, `npm run lint` y `npm run build` correctos. Las pruebas de eventos con React DOM y jsdom comprobaron carga/error/reintento, carrusel adaptable, contador persistido y limpieza sincronizada. Resultados y límites en `evidencias/lab11-interacciones.txt`.
 
 Comprobación manual: observar el esqueleto al cargar y los estrenos tras 1200 ms; avanzar/retroceder hasta ambos extremos y cambiar el ancho de ventana; agregar dos favoritas y quitar una comprobando la cabecera; filtrar por «órbita», esperar 500 ms y limpiar para recuperar las ocho películas sin perder favoritas. Para reproducir el error, montar temporalmente `<PremieresSection requestOptions={{ shouldFail: true }} />`; debe mostrar el aviso y Reintentar debe volver a carga antes de repetir el fallo. Restaurar el montaje habitual al terminar.
 

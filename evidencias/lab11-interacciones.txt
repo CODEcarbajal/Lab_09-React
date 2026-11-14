@@ -1,0 +1,24 @@
+Laboratorio 11 — Segunda parte (pasos 7 a 12)
+Autor de los commits: luiscucho-oss <luiscucho-oss@users.noreply.github.com>
+Rama: feat/lab11-comunicacion-componentes
+
+Verificación ejecutada con Node v24.22.0, React 19.3.1 y Vite 8.3.6.
+npm ci: correcto con el lockfile existente.
+npm test -- --registrar: correcto (ver verificacion.txt).
+npm run lint: correcto, sin diagnósticos.
+npm run build: correcto.
+
+Prueba de interacciones con React DOM y jsdom en una carpeta temporal,
+sin añadir dependencias al proyecto:
+OK — usePremieres empieza cargando y resuelve los datos simulados.
+OK — shouldFail muestra el error y Reintentar vuelve a cargar.
+OK — carrusel: cuatro elementos en escritorio, controles deshabilitados
+     en los extremos y un elemento tras resize a 400 px.
+OK — agregar dos favoritas y quitar una actualiza Header a 1 favorita
+     y persiste un único ID en localStorage.
+OK — escribir «órbita» y esperar 550 ms deja una tarjeta.
+OK — Limpiar vacía el input y restaura inmediatamente las ocho tarjetas.
+OK — limpiar conserva la favorita y el contador de la cabecera.
+
+Alcance: prueba del DOM y de eventos; no es una revisión visual del navegador.
+No se ha confirmado la edición del documento de Google ni una entrega al campus.
