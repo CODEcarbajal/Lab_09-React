@@ -2,7 +2,7 @@
 
 ## Laboratorio 11 · Comunicación entre componentes
 
-La rama `codex/lab11-comunicacion-componentes` parte del cierre del Laboratorio 10 (`6ef0cff`). Para reproducir la base, ejecuta `npm ci` y `npm run dev`, y abre la dirección que indique Vite.
+La rama `feat/lab11-comunicacion-componentes` parte del cierre del Laboratorio 10 (`6ef0cff`). Para reproducir la base, ejecuta `npm ci` y `npm run dev`, y abre la dirección que indique Vite.
 
 Antes de iniciar los cambios se comprobaron las ocho tarjetas, el filtro por título y la persistencia de favoritas al recargar. También se ejecutaron `npm test`, `npm run lint` y `npm run build`.
 
@@ -13,6 +13,39 @@ Antes de iniciar los cambios se comprobaron las ocho tarjetas, el filtro por tí
 - `MovieCard` emite `onToggleFavorite`. `App` actualiza las favoritas y usa Sonner para mostrar el aviso correspondiente.
 - `useDebounce(value, delay)` cancela el temporizador al cambiar el valor o desmontar el componente. `Cartelera` lo usa con 500 ms y comparte el estado de búsqueda entre `Hero` y `MovieList`.
 - `useWindowSize()` devuelve `{ width, height }` en píxeles y retira su suscripción a `resize` al desmontar. `MovieList` decide si muestra una columna hasta 540 px, dos hasta 960 px o cuatro a partir de 961 px. El carrusel de estrenos puede reutilizar el mismo hook en la segunda parte.
+
+### Pasos 7 a 12 · Luis (`luiscucho-oss`)
+
+7. `usePremieres` simula una petición de 1200 ms y devuelve `loading`, `data`, `error` y `retry`. Cancela el temporizador al desmontarse. Los seis estrenos proceden del catálogo ficticio local. La opción `shouldFail: true` permite reproducir un fallo sin depender de una API externa.
+8. `PremieresSection` muestra `PremieresSkeleton` durante la carga, un mensaje con Reintentar ante un error y `PremieresCarousel` al recibir datos. El carrusel usa `useWindowSize` para mostrar una, dos o cuatro películas; sus controles respetan los límites de la lista. El esqueleto respeta la preferencia de movimiento reducido.
+9. `App` conserva `favoriteIds` y deriva `favoriteCount = favoriteIds.length`. `Header` recibe únicamente ese número, además del nombre y la navegación. Los eventos de las tarjetas siguen actualizando el mismo estado y la persistencia existente.
+10. El botón Limpiar que ya estaba dentro de `MovieSearch`, en el banner, llama a `onChange('')`. `Cartelera` restaura inmediatamente las ocho películas y conserva el debounce de 500 ms al escribir. Limpiar no modifica las favoritas.
+11. Árbol de componentes y distribución de los datos:
+
+```text
+App — favoriteIds, toggleFavorite y persistencia; deriva favoriteCount
+├── Header — nombre, navegación y favoriteCount (solo props)
+├── main
+│   ├── Cartelera — searchText, debouncedSearchText y películas filtradas
+│   │   ├── Hero — película destacada, searchValue y onSearchChange
+│   │   │   ├── MovieSearch — value/onChange; emite escritura y limpieza
+│   │   │   └── Button — enlace a cartelera
+│   │   └── MovieList — películas, favoriteIds y onToggleFavorite
+│   │       └── MovieCard — película, isFavorite y onToggleFavorite
+│   │           └── Button — emite el cambio de favorita
+│   └── PremieresSection — usePremieres: loading/data/error/retry
+│       ├── PremieresSkeleton — presentación de carga
+│       ├── Button — reintento ante error
+│       └── PremieresCarousel — posición local y tamaño de ventana
+├── Footer — información del cine por props
+└── Toaster — notificaciones de favoritas
+```
+
+El contador no debe tener un estado independiente en `Header`: las tarjetas que lo modifican están en otra rama del árbol. Si la cabecera fuera su propietaria, las tarjetas no podrían actualizarlo por el flujo descendente de props; duplicarlo también permitiría que se desincronizara con la lista y con `localStorage`. `App` es el ancestro común que mantiene la fuente de verdad. La cabecera solo presenta el número derivado y no necesita recibir la lista completa.
+
+12. Publicación prevista en la misma rama del repositorio del equipo. La entrega al campus y las evidencias del documento compartido deben verificarse por separado; un push no equivale a entregar el informe en el campus.
+
+Comprobación manual: observar el esqueleto al cargar y los estrenos tras 1200 ms; avanzar/retroceder hasta ambos extremos y cambiar el ancho de ventana; agregar dos favoritas y quitar una comprobando la cabecera; filtrar por «órbita», esperar 500 ms y limpiar para recuperar las ocho películas sin perder favoritas. Para reproducir el error, montar temporalmente `<PremieresSection requestOptions={{ shouldFail: true }} />`; debe mostrar el aviso y Reintentar debe volver a carga antes de repetir el fallo. Restaurar el montaje habitual al terminar.
 
 ## Laboratorio 10 · Componentes y eventos · Primera parte
 
