@@ -4,6 +4,7 @@ import Cartelera from './componentes/Cartelera.jsx'
 import Footer from './componentes/Footer.jsx'
 import { cine, navegacion } from './datos/cine.js'
 import Header from './componentes/Header.jsx'
+import PremieresSection from './componentes/PremieresSection.jsx'
 import { peliculas } from './datos/peliculas.js'
 
 const FAVORITES_STORAGE_KEY = 'cine-aurora-favoritas'
@@ -49,6 +50,7 @@ export default function App() {
       <Header nombre={cine.nombre} navegacion={navegacion} />
       <main id="inicio" className="contenedor">
         <Cartelera favoriteIds={favoriteIds} onToggleFavorite={toggleFavorite} />
+        <PremieresSection />
       </main>
       <Footer cine={cine} />
       <Toaster position="bottom-right" containerAriaLabel="Notificaciones" />
