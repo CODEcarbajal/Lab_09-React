@@ -47,7 +47,7 @@ export default function App() {
 
   return (
     <>
-      <Header nombre={cine.nombre} navegacion={navegacion} />
+      <Header nombre={cine.nombre} navegacion={navegacion} favoriteCount={favoriteIds.length} />
       <main id="inicio" className="contenedor">
         <Cartelera favoriteIds={favoriteIds} onToggleFavorite={toggleFavorite} />
         <PremieresSection />

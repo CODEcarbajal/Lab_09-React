@@ -1,4 +1,4 @@
-export default function Header({ nombre, navegacion }) {
+export default function Header({ nombre, navegacion, favoriteCount = 0 }) {
   return (
     <header className="cabecera">
       <div className="contenedor cabecera-interior">
@@ -9,6 +9,9 @@ export default function Header({ nombre, navegacion }) {
         <nav aria-label="Navegación principal">
           {navegacion.map(({ texto, destino }) => <a key={destino} href={destino}>{texto}</a>)}
         </nav>
+        <p className="cabecera-favoritas numeros-tabulares" role="status">
+          <span aria-hidden="true">♥ </span>{favoriteCount} {favoriteCount === 1 ? 'favorita' : 'favoritas'}
+        </p>
       </div>
     </header>
   )
