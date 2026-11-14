@@ -11,7 +11,8 @@ function normalizarTitulo(texto) {
 export default function Cartelera({ favoriteIds, onToggleFavorite }) {
   const [searchText, setSearchText] = useState('')
   const debouncedSearchText = useDebounce(searchText, 500)
-  const consulta = normalizarTitulo(debouncedSearchText)
+  // Limpiar restaura el listado inmediatamente; al escribir se conservan los 500 ms.
+  const consulta = normalizarTitulo(searchText === '' ? '' : debouncedSearchText)
   const peliculasFiltradas = peliculas.filter(({ titulo }) => normalizarTitulo(titulo).includes(consulta))
 
   return (
